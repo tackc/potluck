@@ -3,9 +3,10 @@ var express = require('express');
 var methodOverride = require('method-override');
 var path = require('path');
 var logger = require('morgan');
-
+require('./config/database');
 
 var homeRouter = require('./routes/home');
+var studenstRouter = require('./routes/students');
 
 var app = express();
 
@@ -20,6 +21,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(methodOverride('_method'));
 
 app.use('/', homeRouter);
+app.use('/students', studenstRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

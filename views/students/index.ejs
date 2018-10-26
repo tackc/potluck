@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<h1>All the Students:</h1>
+<a href="/students/new">Add a Student</a>
+<hr />
+
+<% students.forEach(function(student) { %>
+    <h2><a href="/students/<%= student._id %>"><%= student.name %></a></h2>
+    <h3>Color: <%= student.color %></h3>
+    <hr />
+<% }); %>
+
+<%- include('../partials/footer') %>
